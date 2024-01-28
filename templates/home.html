@@ -1,9 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Home page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 50px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            text-align: left;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello World</h1>
+    <form action="{{ url_for('predict') }}" method="post">
+        <h2>Enter Data</h2>
+        <label for="field1">CRIM:</label>
+        <input type="text" id="CRIM" name="CRIM" required>
+        <label for="field2">ZN:</label>
+        <input type="text" id="ZN" name="ZN" required>
+        <label for="INDUS">INDUS:</label>
+        <input type="text" id="INDUS" name="INDUS" required>
+        <label for="CHAS">CHAS:</label>
+        <input type="text" id="CHAS" name="CHAS" required>
+        <label for="NOX">NOX:</label>
+        <input type="text" id="NOX" name="NOX" required>
+        <label for="RM">RM:</label>
+        <input type="text" id="RM" name="RM" required>
+        <label for="AGE">AGE:</label>
+        <input type="text" id="AGE" name="AGE" required>
+        <label for="DIS">DIS:</label>
+        <input type="text" id="DIS" name="DIS" required>
+        <label for="RAD">RAD:</label>
+        <input type="text" id="RAD" name="RAD" required>
+        <label for="TAX1">TAX:</label>
+        <input type="text" id="TAX" name="TAX" required>
+        <label for="PTRATIO">PTRATIO:</label>
+        <input type="text" id="PTRATIO" name="PTRATIO" required>
+        <label for="B">B:</label>
+        <input type="text" id="B" name="B" required>
+        <label for="LSTAT">LSTAT:</label>
+        <input type="text" id="LSTAT" name="LSTAT" required>
+
+        <button type="submit">Predict Price</button>
+    </form>
+    <br>
+    <br>
+    <h3>{{predicted_text}}</h3>
 </body>
 </html>
